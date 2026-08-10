@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contenedor">
+      <nav class="barra-navegacion">
+        <button class="boton-inicio">Inicio</button>
+      </nav>
+      <div>
+        <input type="text" class="buscador-paises" />
+        <select name="filtrar" id="filtrar-paises">
+          <option value="Oceania">Oceania</option>
+          <option value="Africa">Africa</option>
+          <option value="America-Norte">America Del Norte</option>
+          <option value="Asia">Asia</option>
+          <option value="America-Sur">America Del sur</option>
+          <option value="Europa">Europa</option>
+          <option value="Antartida">Antartida</option>
+        </select>
+      </div>
+      <div class="lista-paises"></div>
+    </div>
+
+    <script type="module" src="./src/js/controller.js"></script>
+  </body>
+</html>

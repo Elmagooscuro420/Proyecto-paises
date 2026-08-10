@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+:root {
+  --color-fondo: #8c8700da;
+  --color-secundario: #005f8c;
+  --bordes-botones: #8c0010;
+}
+
+.contenedor {
+  background-color: var(--color-fondo);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.barra-navegacion {
+  width: 100%;
+  background-color: var(--color-secundario);
+}
+.boton-inicio,
+.buscador-paises,
+#filtrar-paises,
+.lista-paises {
+  background-color: var(--bordes-botones);
+}
