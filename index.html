@@ -4,16 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <!-- Poner en el <head> de tu index.html -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
     <div class="contenedor">
       <nav class="barra-navegacion">
-        <button class="boton-inicio">Inicio</button>
+        <button class="boton-inicio"></button>
       </nav>
-      <div>
+      <div class="contenedor-buscador-filtrado">
         <input type="text" class="buscador-paises" />
         <select name="filtrar" id="filtrar-paises">
+          <option value="seleccionar">--Seleccione--</option>
           <option value="Oceania">Oceania</option>
           <option value="Africa">Africa</option>
           <option value="America-Norte">America Del Norte</option>

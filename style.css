@@ -3,29 +3,106 @@
   margin: 0;
   box-sizing: border-box;
   color: white;
+  font-family: "Outfit", sans-serif;
 }
 
 :root {
   --color-fondo: #8c8700da;
+  --color-gradiente-fondo: rgb(117, 117, 117);
   --color-secundario: #005f8c;
+  --color-gradiente-barra-nav: #004566;
   --bordes-botones: #8c0010;
+  --color-borde-input: rgba(255, 255, 255, 0.712);
+  --color-sombra: rgba(59, 59, 59, 0.856);
 }
 
+/*Poner color a todos los inputs, botones, etc*/
+.boton-inicio,
+.buscador-paises,
+#filtrar-paises,
+.lista-paises {
+  background-color: var(--bordes-botones);
+}
+
+/*Estilo del contenedor de toda la pagina*/
 .contenedor {
   background-color: var(--color-fondo);
+  background: linear-gradient(
+    180deg,
+    var(--color-gradiente-fondo) 0%,
+    var(--color-fondo) 100%
+  );
   width: 100%;
   height: 100vh;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
 }
+
+/*Estilos de la barra de naveg  acion*/
 .barra-navegacion {
   width: 100%;
   background-color: var(--color-secundario);
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    var(--color-gradiente-barra-nav) 0%,
+    var(--color-secundario) 100%
+  );
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
 }
-.boton-inicio,
-.buscador-paises,
-#filtrar-paises,
-.lista-paises {
-  background-color: var(--bordes-botones);
+/*Estilos de la imagen y boton de la barra de navegacion*/
+.boton-inicio {
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+  border: none;
+  background-image: url(./src/img/planet-earth-earth-day-or-environment-conservation-concept-png.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+/*Contenedor de la barra de busqueda y del filtrador*/
+.contenedor-buscador-filtrado {
+  width: 80%;
+  height: auto;
+  margin: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Estilos y animaciones de la barra de busqueda*/
+.buscador-paises {
+  min-width: 300px;
+  height: auto;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  padding: 5px;
+  padding-left: 15px;
+  margin: 10px;
+  outline: none;
+  box-shadow: 8px 8px 5px 0 var(--color-sombra);
+  transition: border-color 0.3s ease;
+}
+/*Cambia el color del borde cuando le hagan clic*/
+.buscador-paises:focus {
+  border: 3px solid #c5031a;
+}
+/*Estilo del select, para las distintas opciones*/
+#filtrar-paises {
+  font-size: 1rem;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px;
+  margin: 10px;
+  box-shadow: 8px 8px 5px 0 var(--color-sombra);
+  border: none;
 }
