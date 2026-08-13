@@ -8,12 +8,15 @@
 
 :root {
   --color-fondo: #8c8700da;
-  --color-gradiente-fondo: rgb(117, 117, 117);
+  --color-gradiente-fondo: rgb(58, 58, 58);
   --color-secundario: #005f8c;
   --color-gradiente-barra-nav: #004566;
   --bordes-botones: #8c0010;
+  --bordes-info-paises: #c2bb01;
   --color-borde-input: rgba(255, 255, 255, 0.712);
   --color-sombra: rgba(59, 59, 59, 0.856);
+  --color-gradiente-contenedor-info-paises: #b30217;
+  --color-gradiente-contenedor-infor-paises-2: #006492;
 }
 
 /*Poner color a todos los inputs, botones, etc*/
@@ -29,8 +32,8 @@
   background-color: var(--color-fondo);
   background: linear-gradient(
     180deg,
-    var(--color-gradiente-fondo) 0%,
-    var(--color-fondo) 100%
+    var(--color-fondo) 0%,
+    var(--color-gradiente-fondo) 100%
   );
   width: 100%;
   height: auto;
@@ -39,7 +42,7 @@
   align-items: center;
 }
 
-/*Estilos de la barra de naveg  acion*/
+/*Estilos de la barra de navegacion*/
 .barra-navegacion {
   width: 100%;
   background-color: var(--color-secundario);
@@ -80,7 +83,8 @@
 
 /*Estilos y animaciones de la barra de busqueda*/
 .buscador-paises {
-  min-width: 300px;
+  min-width: 200px;
+  max-width: 500px;
   height: auto;
   border: 2px solid transparent;
   border-radius: 20px;
@@ -106,8 +110,48 @@
   box-shadow: 8px 8px 5px 0 var(--color-sombra);
   border: none;
 }
-
+/*Contenedor con todos los paises y su respectiva informacion*/
 .lista-paises {
   width: 90%;
   height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background: linear-gradient(
+    to right,
+    var(--bordes-botones),
+    var(--color-gradiente-barra-nav)
+  );
+}
+
+/*Contenedor de cada pais, donde viene la bandera y la informacion correspondiente*/
+.contenedor-info-paises {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border: 2px solid var(--bordes-info-paises);
+}
+
+/*Estilos de todas las banderas*/
+.banderas {
+  min-width: 200px;
+  max-width: 600px;
+  width: 40%;
+  height: 40%;
+  margin: 10px;
+  padding: 5px;
+  object-fit: cover;
+}
+
+/*Estilo de toda la informacion de los paises y 
+Quitar las decoraciones del Li que muestra la informacion de los paises*/
+.info-paises {
+  list-style: none;
+  width: auto;
+  margin: 5px;
+  padding: 2px;
 }
