@@ -3,6 +3,9 @@ export const vista = {
   inputPais: document.querySelector(".buscador-paises"),
   botonBusqueda: document.querySelector(".boton-busqueda"),
 
+  /*Funcion que obtiene datos de los paises y crea el html de forma
+  automatica para cada pais y asi mostrarlo en el contenedor, creando
+  asi una lista con todos los paises con su respectivo estilo*/
   mostrarPaises(datos) {
     this.listaPaises.innerHTML = "";
     datos.forEach((pais) => {
@@ -27,25 +30,32 @@ export const vista = {
       this.listaPaises.append(contenedorNuevo);
     });
   },
+  /* Funcion que permite tener un evento en el boton de la 🔍
+  permitiendo que cada que se le haga click, le pasen una funcion
+  y busque el pais deseado */
   eventoBotonBusqueda(funcion) {
     this.botonBusqueda.addEventListener("click", funcion);
   },
+  /*Funciona igual que la funcion anterior, solo que ahora el 
+  evento esta en el input donde se pone el nombre del pais
+  y cuando se le de Enter buscara el pais deseado */
   eventoEnterBusqueda(funcion) {
     this.inputPais.addEventListener("keyup", (e) => {
       if (e.key === "Enter") funcion();
     });
   },
-
+  /*Permite obtener el nombre del pais que se quiere buscar*/
   obtenerPaisInput() {
     return this.inputPais.value;
   },
-
+  /*Funcion que permite crear un html con un mensaje
+  de error por si se digita mal el nombre de un pais */
   mostrarError() {
     this.listaPaises.innerHTML = "";
     const contenedorNuevo = document.createElement("div");
     contenedorNuevo.classList.add("contenedor-info-paises");
     contenedorNuevo.innerHTML = `
-       <p>No se encontro Pais</p>`;
+       <p>Pais no encontrado</p>`;
     this.listaPaises.append(contenedorNuevo);
   },
 };

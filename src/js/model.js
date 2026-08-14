@@ -1,4 +1,9 @@
 let listaInformacionPaises = [];
+
+/*Funcion que se exportara para que pueda ser usada en el archivo
+  controller.js y esta destinada a obtener los datos de los paises de
+  su respectiva Api, tratar estos datos obtenidos solo para mandar los 
+  que se quiere mostrar, usando try catch para el manejo de errores*/
 export const obtenerDatosPaises = async function () {
   try {
     const datos = await fetch(
@@ -25,13 +30,24 @@ export const obtenerDatosPaises = async function () {
   }
 };
 
+/*Funcion con la cual se trata los datos y funciona de la siguiente forma
+se le pasara un dato y si el dato esta vacio que se paso en este caso "datos"
+si datos esta vacio entonces retornara "No existe", si datos no esta vacio
+entonces retornara el dato obtenido de la Api  */
 const tratarDatosPaises = function (datos) {
   return datos ?? "No existe";
 };
+
+/*Mismo proceso que la funcion anterior, solo que es un caso mucho mas
+expecifico, ya que si no viene con imagen de la bandera, se le asignara
+una imagen para demostrar que no se sabe cual bandera tienen*/
 const tratarBanderasPaises = function (datos) {
   return datos || "./src/img/sin_bandera.png";
 };
 
+/*Esta funcion obtiene los datos de un pais especifico obtenido por un 
+usuario desde la Api, se tratan los datos y todo lo mismo que la primera 
+funcion que obtenia los datos de la Api */
 export const buscarPais = async function (pais) {
   try {
     const dato = await fetch(
