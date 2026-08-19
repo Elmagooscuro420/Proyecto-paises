@@ -58,7 +58,7 @@ export const buscarPais = async function (pais) {
         },
       },
     );
-    if (!dato) throw new Error("Paises no encontrados");
+    if (!dato) throw new Error("Pais no encontrados");
     const resultados = await dato.json();
     const paisBuscado = resultados.data.objects;
     listaInformacionPaises = paisBuscado.map((pais) => ({
@@ -71,5 +71,33 @@ export const buscarPais = async function (pais) {
     return listaInformacionPaises;
   } catch (error) {
     console.error(error);
+  }
+};
+/*Obtener los paises de la region buscada por el usuario, asi pedirle a la 
+api que me de los datos aqui como siempre se tratan los datos para que no mande-
+mos valores vacios que rompan el sistema */
+export const filtrarPaises = async function (region) {
+  try {
+    const dato = await fetch(
+      `https://api.restcountries.com/countries/v5/region/${region}`,
+      {
+        headers: {
+          Authorization: "rc_live_063dc194e94248c58201e116d667defd",
+        },
+      },
+    );
+    if (!dato) throw new Error("Pais no encontrados");
+    const resultados = await dato.json();
+    const paisRegion = resultados.data.objects;
+    listaInformacionPaises = paisRegion.map((pais) => ({
+      nombre: tratarDatosPaises(pais.names?.common),
+      capital: tratarDatosPaises(pais.capitals?.[0]?.name),
+      poblacion: tratarDatosPaises(pais?.population),
+      region: tratarDatosPaises(pais?.region),
+      bandera: tratarBanderasPaises(pais.flag?.url_png),
+    }));
+    return listaInformacionPaises;
+  } catch (error) {
+    console.log(error);
   }
 };

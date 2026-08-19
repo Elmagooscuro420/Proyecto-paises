@@ -2,6 +2,7 @@ export const vista = {
   listaPaises: document.querySelector(".lista-paises"),
   inputPais: document.querySelector(".buscador-paises"),
   botonBusqueda: document.querySelector(".boton-busqueda"),
+  filtrarPais: document.getElementById("filtrar-paises"),
 
   /*Funcion que obtiene datos de los paises y crea el html de forma
   automatica para cada pais y asi mostrarlo en el contenedor, creando
@@ -57,5 +58,19 @@ export const vista = {
     contenedorNuevo.innerHTML = `
        <p>Pais no encontrado</p>`;
     this.listaPaises.append(contenedorNuevo);
+  },
+
+  /*Limpiar el input cuando el usuario ya busque el pais de su eleccion */
+  limpiarinput() {
+    this.inputPais.value = "";
+  },
+
+  /*Evento que se activa cuando el usuario selecciona una opcion de region
+  con esto se devuelve la region seleccionada y ya la funcion hace el resto */
+  eventoFiltrarPaises(funcion) {
+    this.filtrarPais.addEventListener("change", (e) => {
+      const regionSeleccionada = e.target.value;
+      funcion(regionSeleccionada);
+    });
   },
 };
